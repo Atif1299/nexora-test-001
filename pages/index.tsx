@@ -1,18 +1,19 @@
-import Head from 'next/head';
-import React from 'react';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 
-const Home: React.FC = () => {
-  return (
-    <>
-      <Head>
-        <title>Minimal Hello Page</title>
-        <meta name="description" content="A minimal static hello page" />
-      </Head>
-      <main>
-        <h1>Hello, World!</h1>
-      </main>
-    </>
-  );
+export const metadata: Metadata = {
+  title: 'Hello',
+  description: 'Minimal static hello page',
 };
 
-export default Home;
+export default function HomePage() {
+  return (
+    <main style={{ padding: '2rem', fontFamily: 'system-ui, sans-serif', textAlign: 'center' }}>
+      <h1>Hello, World!</h1>
+      <p>This is a minimal static landing page.</p>
+      <Link href="/about">
+        <a>About</a>
+      </Link>
+    </main>
+  );
+}
