@@ -1,19 +1,25 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import { useEffect } from 'react';
 
-export const metadata: Metadata = {
-  title: 'Hello',
-  description: 'Minimal static hello page',
+const Home: NextPage = () => {
+  useEffect(() => {
+    console.log('Home page mounted');
+  }, []);
+
+  return (
+    <>
+      <Head>
+        <title>Minimal Hello Page</title>
+        <meta name="description" content="A minimal static hello page" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <main style={{ padding: '4rem', textAlign: 'center' }}>
+        <h1>Hello, World!</h1>
+        <p>Welcome to the minimal static landing page.</p>
+      </main>
+    </>
+  );
 };
 
-export default function HomePage() {
-  return (
-    <main style={{ padding: '2rem', fontFamily: 'system-ui, sans-serif', textAlign: 'center' }}>
-      <h1>Hello, World!</h1>
-      <p>This is a minimal static landing page.</p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </main>
-  );
-}
+export default Home;
